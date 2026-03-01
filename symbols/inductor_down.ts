@@ -1,4 +1,10 @@
-import { flipSymbolOverXAxis } from "drawing/rotateSymbol"
-import inductor_up from "./inductor_up"
+import { modifySymbol } from "../drawing/modify-symbol/modify-symbol"
+import svgJson from "assets/generated/inductor.json"
 
-export default flipSymbolOverXAxis(inductor_up)
+export default modifySymbol(svgJson)
+  .rotateRightFacingSymbol("up")
+  .labelPort("right1", ["1"])
+  .labelPort("left1", ["2"])
+  .changeTextAnchor("{REF}", "middle_right")
+  .changeTextAnchor("{VAL}", "middle_left")
+  .build()
